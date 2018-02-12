@@ -1,5 +1,15 @@
 <?php
-class electronics{
+
+interface MachineInterface{
+   public function changePowerState();
+   public function getPowerState();
+   
+}
+
+
+
+
+abstract class electronics implements MachineInterface{
     
     protected $power;
     protected $display;
@@ -35,7 +45,7 @@ class electronics{
         $this->display = $type;
     }
     
-    public function __construct($power,$display){
+    public function __construct($power,string $display){
         $this->display = $display;
         $this->power = $power;
     }
@@ -188,3 +198,5 @@ echo '<BR>';
 
 $phone = new smartphone('AC','OLED',4.5, 64);
 echo $phone->getScreenSize();
+echo '<BR>';
+echo $phone->getDisplay();
